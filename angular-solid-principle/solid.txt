@@ -1,0 +1,34 @@
+1. Single Repsonsibility
+-class should have one, and only one, reason to change.
+-Components, class, module should do one thing.
+
+Example:
+app-root component should just handle the skeleton structure of toolbar and content
+
+2. Open/Closed Principle
+-software entities should be open fo extension, but closed for modification.
+-Usually it was for features that will scale.
+
+Example:
+-npm libraries are closed and cannot be modified, but we are able to extend its functionality.
+-In Angular, can utilize <ng-content> to create a extendable template.
+
+3. Liskov Substitution Principle
+-Functions that use pointers and references to base classes must be able to use objects of derived classes
+without knowning it.
+
+Example:
+-in Angular, probably is by creating a base class, and extending it on derived class to 
+use the method created in base class.
+
+4. Interface segregation service
+-Many client-specific interfaces are better than one general-purpose interface.
+
+Example:
+-In Angular, we could create interface to decribe the contract. but sometimes, one
+general-purpose interface might have some problem when the some of derived classes 
+did not need to follow all the contract in the contract. Hence, breaking down one
+general-purpose interface into multiple interface can create the flexibility.
+
+5. Dependency Inversion Principle
+-High-level modules should not depend on low-level modules. Both should depend on abstraction.
