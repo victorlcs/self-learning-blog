@@ -1,0 +1,41 @@
+1. One to one / One to many / Many To Many
+-Have two methods to do this
+a. Using embeded documents:
+{
+    "name": "Max",
+    "cars": [
+        {
+            "model": "Tesla X"
+            "price": 50000
+        }
+    ]
+}
+b. Using references:
+{
+    "_id": 12313123,
+    "name": "Max",
+    "cars": [
+        "carsId": "teslax123"
+    ]
+}
+
+{
+    "_id": "teslax123"
+    "model": "Tesla X"
+    "price": 50000
+}
+
+
+
+
+How to decide which methods? 
+a. For example One city has many citizens, one citizens belong to one city:
+In this situation: references is more suitable as sometimes we may just need retrieve
+City data, and it would be alot data overhead if citizen data is embedded inside City documents.
+Besides, One city might have millions of citizen.
+b. To think about which method could minimized collections files size.
+c. For many to many, not necessary to use references only. It all depends on:
+ i. How do you fetch the data?
+ ii. How oftern do you change the data?
+ iii. If you change it, do you need to change it everywhere?
+ iv. Or duplication will be fine?
